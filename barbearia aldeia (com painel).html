@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barbearia Aldeia · Cidade Tiradentes</title>
+<meta name="description" content="Barbearia Aldeia, Cidade Tiradentes. Nota 5,0 no Google. Corte, barba, químicas e combos. Agende online.">
+<meta property="og:title" content="Barbearia Aldeia · Cidade Tiradentes">
+<meta property="og:description" content="Nota 5,0 no Google com 49 avaliações. Agende seu horário online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0e0d0c; --ink2:#181614; --paper:#f3efe8; --line:rgba(255,255,255,.12);
+  --fire:#ff6a13; --sun:#ffb21a; --muted:#a39e96;
+  --grad:linear-gradient(100deg,var(--sun),var(--fire));
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{font-family:Inter,system-ui,sans-serif;background:var(--ink);color:#fff;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.display{font-family:Anton,Impact,sans-serif;text-transform:uppercase;letter-spacing:.01em;line-height:.92}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--sun)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;font-weight:700;font-size:15px;transition:transform .2s, box-shadow .2s}
+.btn-fire{background:var(--grad);color:#1a0d00;box-shadow:0 10px 30px -8px rgba(255,106,19,.6)}
+.btn-fire:hover{transform:translateY(-2px);box-shadow:0 16px 40px -8px rgba(255,106,19,.75)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.28)}
+.btn-ghost:hover{border-color:#fff}
+
+/* NAV */
+nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s, backdrop-filter .3s}
+nav.solid{background:rgba(14,13,12,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid #000;box-shadow:0 0 0 2px var(--fire)}
+.brand span{font-family:Anton,sans-serif;font-size:22px;letter-spacing:.04em}
+.nav-links{display:flex;gap:28px;font-size:14px;font-weight:500;color:#ddd}
+.nav-links a:hover{color:var(--sun)}
+.nav-cta{padding:11px 20px;font-size:14px}
+@media(max-width:820px){.nav-links{display:none}}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;padding:120px 0 56px}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(60% 55% at 85% 20%,rgba(255,106,19,.32),transparent 70%),
+  radial-gradient(45% 45% at 10% 90%,rgba(255,178,26,.16),transparent 70%)}
+.hero-word{position:absolute;right:-2vw;top:50%;transform:translateY(-58%);font-family:Anton,sans-serif;font-size:34vw;line-height:.8;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.07);pointer-events:none;user-select:none}
+.hero .wrap{position:relative;width:100%}
+.stars{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border:1px solid var(--line);padding:8px 14px 8px 10px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:26px}
+.stars b{color:var(--sun);letter-spacing:2px}
+.hero h1{font-size:clamp(64px,13vw,168px)}
+.hero p.lead{max-width:520px;font-size:clamp(17px,2vw,20px);color:#d8d3cb;margin:26px 0 34px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:28px;margin-top:54px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.hero-meta strong{display:block;color:#fff;font-size:15px;font-weight:600}
+
+/* MARQUEE */
+.marquee{background:var(--grad);color:#1a0d00;overflow:hidden;padding:14px 0;transform:rotate(-1.2deg);margin:-6px -10px 0}
+.marquee-track{display:flex;gap:42px;width:max-content;animation:run 32s linear infinite;font-family:Anton,sans-serif;font-size:22px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+.marquee-track span::after{content:"✦";margin-left:42px}
+@keyframes run{to{transform:translateX(-50%)}}
+
+section{padding:110px 0}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:54px}
+.sec-head h2{font-size:clamp(46px,7vw,84px);margin-top:12px}
+.sec-head p{max-width:380px;color:var(--muted)}
+
+/* SOBRE */
+.about{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+.about h2{font-size:clamp(46px,7vw,84px);margin:12px 0 24px}
+.about p{color:#cfc9c0;font-size:17px;margin-bottom:16px}
+.team{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.barber{position:relative;aspect-ratio:3/4;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,#2a211a,#120f0c);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
+.barber::before{content:attr(data-initial);position:absolute;top:-10px;right:8px;font-family:Anton,sans-serif;font-size:180px;line-height:1;color:rgba(255,140,40,.13)}
+.barber small{color:var(--sun);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+.barber h3{font-family:Anton,sans-serif;font-size:34px;text-transform:uppercase;margin-top:4px}
+.barber .bk{margin-top:14px;font-size:13px;font-weight:600;color:#fff;opacity:.85}
+.barber .bk:hover{color:var(--sun)}
+.perks{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.perks span{border:1px solid var(--line);background:rgba(255,255,255,.04);padding:9px 15px;border-radius:999px;font-size:14px}
+@media(max-width:860px){.about{grid-template-columns:1fr}}
+
+/* SERVIÇOS */
+.light{background:var(--paper);color:var(--ink)}
+.light .eyebrow{color:#d4560a}
+.light .sec-head p{color:#6f6a62}
+.tabs{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
+.tab{border:1.5px solid #d9d2c6;background:none;padding:10px 20px;border-radius:999px;font:600 14px Inter,sans-serif;color:#4a453f;cursor:pointer}
+.tab.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.menu{display:none;grid-template-columns:1fr 1fr;column-gap:56px}
+.menu.on{display:grid}
+.item{display:flex;align-items:baseline;gap:14px;padding:22px 0;border-bottom:1px solid #ddd5c8}
+.item h4{font-size:18px;font-weight:700}
+.item p{font-size:14px;color:#7a746b;margin-top:2px}
+.item .dots{flex:1;border-bottom:2px dotted #cfc6b8;transform:translateY(-5px)}
+.item .pr{font-family:Anton,sans-serif;font-size:26px;white-space:nowrap}
+.item .pr small{font-family:Inter,sans-serif;font-size:11px;font-weight:600;color:#8b857c;margin-right:4px;text-transform:uppercase;letter-spacing:.06em}
+.combo{background:var(--ink);color:#fff;border-radius:22px;padding:28px;border:none;margin-bottom:16px;position:relative;overflow:hidden}
+.combo::after{content:"COMBO";position:absolute;right:-6px;bottom:-22px;font-family:Anton,sans-serif;font-size:96px;color:rgba(255,255,255,.05)}
+.combo p{color:#bbb}
+.combo .pr{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.menu-cta{margin-top:44px;display:flex;flex-wrap:wrap;align-items:center;gap:18px}
+.menu-cta span{color:#6f6a62;font-size:14px}
+@media(max-width:760px){.menu{grid-template-columns:1fr}}
+
+/* AVALIAÇÕES */
+.score{display:flex;align-items:center;gap:22px}
+.score .big{font-family:Anton,sans-serif;font-size:96px;line-height:1}
+.score .st{color:var(--sun);font-size:22px;letter-spacing:3px}
+.score small{color:var(--muted);display:block}
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rv{background:var(--ink2);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:18px}
+.rv .q{font-size:16px;color:#e7e2da;flex:1}
+.rv .q::before{content:"“";display:block;font-family:Anton,sans-serif;font-size:54px;line-height:.6;color:var(--fire);margin-bottom:10px}
+.rv .who{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:600}
+.rv .av{width:38px;height:38px;border-radius:50%;background:var(--grad);color:#1a0d00;display:grid;place-items:center;font-weight:800}
+.rv .who small{display:block;color:var(--sun);font-weight:500;letter-spacing:2px;font-size:12px}
+.rv.feat{grid-row:span 2;background:var(--grad);border:none}
+.rv.feat .q{color:#1a0d00;font-size:22px;font-weight:600;line-height:1.4}
+.rv.feat .q::before{color:#1a0d00}
+.rv.feat .who,.rv.feat .who small{color:#1a0d00}
+.rv.feat .av{background:#1a0d00;color:var(--sun)}
+.g-link{margin-top:30px;display:inline-block;color:var(--muted);font-size:14px;border-bottom:1px solid var(--muted)}
+@media(max-width:900px){.reviews{grid-template-columns:1fr}.rv.feat{grid-row:auto}}
+
+/* VISITE */
+.visit{display:grid;grid-template-columns:1fr 1.15fr;gap:22px}
+.card{background:var(--ink2);border:1px solid var(--line);border-radius:22px;padding:34px}
+.card h3{font-family:Anton,sans-serif;text-transform:uppercase;font-size:30px;margin-bottom:22px}
+.hours li{list-style:none;display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.hours li span:last-child{font-weight:600}
+.hours li.today{color:var(--sun)}
+.addr{margin-top:30px;font-size:15px;color:#d8d3cb}
+.addr strong{display:block;color:#fff;font-size:17px;margin-bottom:4px}
+.contacts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.map{border-radius:22px;overflow:hidden;border:1px solid var(--line);min-height:420px}
+.map iframe{width:100%;height:100%;min-height:420px;border:0;filter:grayscale(1) invert(.92) contrast(.9)}
+@media(max-width:860px){.visit{grid-template-columns:1fr}}
+
+/* FINAL */
+.final{text-align:center;padding:120px 0;position:relative;overflow:hidden}
+.final h2{font-size:clamp(54px,10vw,130px)}
+.final p{color:var(--muted);margin:18px 0 34px}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a:hover{color:#fff}
+
+/* Botão flutuante mobile */
+.float{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;display:none;justify-content:center}
+@media(max-width:760px){.float{display:flex}.float .btn{width:100%;justify-content:center}footer{padding-bottom:96px}}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease, transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a href="#" class="brand">
+      <img src="https://barbeariaaldeia.ageenda.com.br/wp-content/uploads/0576A550-3CA8-488C-8A62-287E5D266103-5-512x512.jpeg" alt="Logo Barbearia Aldeia">
+      <span>ALDEIA</span>
+    </a>
+    <div class="nav-links">
+      <a href="#sobre">A casa</a><a href="#servicos">Serviços</a><a href="#avaliacoes">Avaliações</a><a href="#visite">Visite</a>
+    </div>
+    <a class="btn btn-fire nav-cta" href="#agendar" data-book="">Agendar</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-word">ALDEIA</div>
+  <div class="wrap">
+    <div class="stars"><b>★★★★★</b> 5,0 no Google · 49 avaliações</div>
+    <h1 class="display">Barbearia<br><span class="grad">Aldeia</span></h1>
+    <p class="lead">Corte de respeito, café passado na hora e aquela resenha. Cidade Tiradentes, de segunda a domingo.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-fire" href="#agendar" data-book="">Agendar meu horário →</a>
+      <a class="btn btn-ghost" href="#servicos">Ver serviços e preços</a>
+    </div>
+    <div class="hero-meta">
+      <div><strong>Corte a partir de R$ 35</strong>Barba, químicas e combos</div>
+      <div><strong>Seg a sáb · 9h às 20h</strong>Domingo 9h às 15h</div>
+      <div><strong>Av. Luiz José Costa Leandro, 321</strong>Cidade Tiradentes · SP</div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Corte</span><span>Barba</span><span>Platinado</span><span>Luzes</span><span>Café na casa</span><span>Ar-condicionado</span><span>Wi-Fi grátis</span><span>Resenha boa</span>
+    <span>Corte</span><span>Barba</span><span>Platinado</span><span>Luzes</span><span>Café na casa</span><span>Ar-condicionado</span><span>Wi-Fi grátis</span><span>Resenha boa</span>
+  </div>
+</div>
+
+<section id="sobre">
+  <div class="wrap about">
+    <div class="reveal">
+      <div class="eyebrow">A casa</div>
+      <h2 class="display">Feita por<br><span class="grad">dois irmãos</span></h2>
+      <p>A Aldeia nasceu de dois irmãos com uma missão simples: você sair da cadeira satisfeito. Sem pressa no capricho e com atendimento rápido.</p>
+      <p>Ambiente climatizado, equipamento novo, cafezinho, música boa e, se bater vontade, ainda tem camiseta pra levar.</p>
+      <div class="perks">
+        <span>☕ Café na casa</span><span>❄️ Ar-condicionado</span><span>📶 Wi-Fi grátis</span><span>🎵 Música ambiente</span><span>🥤 Bebidas</span><span>✂️ Equipamentos novos</span>
+      </div>
+    </div>
+    <div class="team reveal">
+      <div class="barber" data-initial="C">
+        <small>Barbeiro</small><h3>Carlos</h3>
+        <a class="bk" href="#agendar" data-book="carlos">Agendar com o Carlos →</a>
+      </div>
+      <div class="barber" data-initial="R">
+        <small>Barbeiro</small><h3>Roger</h3>
+        <a class="bk" href="#agendar" data-book="roger">Agendar com o Roger →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="servicos" class="light">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><div class="eyebrow">Serviços</div><h2 class="display">Tabela de preços</h2></div>
+      <p>Preço na vitrine, sem surpresa. Escolha o serviço e reserve o horário em menos de 1 minuto.</p>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab on" data-t="corte">Corte e barba</button>
+      <button class="tab" data-t="quim">Químicas</button>
+      <button class="tab" data-t="combo">Combos</button>
+    </div>
+
+    <div class="menu on" id="corte">
+      <div class="item"><div><h4>Corte</h4><p>Tesoura ou máquina, do seu jeito</p></div><span class="dots"></span><span class="pr">R$ 35</span></div>
+      <div class="item"><div><h4>Barba</h4><p>Desenho e acabamento</p></div><span class="dots"></span><span class="pr">R$ 30</span></div>
+      <div class="item"><div><h4>Sobrancelha</h4></div><span class="dots"></span><span class="pr">R$ 10</span></div>
+      <div class="item"><div><h4>Limpeza de pele</h4><p>Remove cravos e oleosidade</p></div><span class="dots"></span><span class="pr">R$ 35</span></div>
+    </div>
+
+    <div class="menu" id="quim">
+      <div class="item"><div><h4>Platinado</h4><p>Depende do comprimento do cabelo</p></div><span class="dots"></span><span class="pr"><small>a partir de</small>R$ 110</span></div>
+      <div class="item"><div><h4>Luzes</h4><p>Depende do comprimento do cabelo</p></div><span class="dots"></span><span class="pr"><small>a partir de</small>R$ 100</span></div>
+      <div class="item"><div><h4>Alisante</h4></div><span class="dots"></span><span class="pr">R$ 35</span></div>
+      <div class="item"><div><h4>Tintura</h4></div><span class="dots"></span><span class="pr">R$ 25</span></div>
+      <div class="item"><div><h4>Hidratação</h4></div><span class="dots"></span><span class="pr">R$ 10</span></div>
+    </div>
+
+    <div class="menu" id="combo">
+      <div class="item combo"><div><h4>Alisante + Hidratação</h4><p>Para um resultado muito mais saudável</p></div><span class="dots" style="border-color:#444"></span><span class="pr">R$ 45</span></div>
+      <div class="item combo"><div><h4>Luzes + Hidratação</h4><p>Para um resultado mais saudável</p></div><span class="dots" style="border-color:#444"></span><span class="pr">R$ 100</span></div>
+    </div>
+
+    <div class="menu-cta">
+      <a class="btn btn-fire" href="#agendar" data-book="">Agendar agora →</a>
+      <span>Agendamento online 24h, escolha o barbeiro e o horário.</span>
+    </div>
+  </div>
+</section>
+
+<section id="avaliacoes">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><div class="eyebrow">Quem senta, volta</div><h2 class="display">O que dizem<br>da <span class="grad">Aldeia</span></h2></div>
+      <div class="score"><div class="big">5,0</div><div><div class="st">★★★★★</div><small>49 avaliações no Google</small></div></div>
+    </div>
+    <div class="reviews reveal">
+      <div class="rv feat">
+        <div class="q">Os meninos são bons barbeiros, saio de Itaquera só pra vim cortar aqui com eles, pode vim sem medo</div>
+        <div class="who"><div class="av">V</div><div>Vinicius Silva<small>★★★★★</small></div></div>
+      </div>
+      <div class="rv">
+        <div class="q">Atendimento nota mil, cafezinho top, ainda se quiser tem umas camisas para você comprar RSS lugar completo de verdade!!</div>
+        <div class="who"><div class="av">S</div><div>Sérgio Cossovan<small>★★★★★</small></div></div>
+      </div>
+      <div class="rv">
+        <div class="q">Profissionais de alta qualidade, local agradável e climatizado. Sem contar a humildade dos profissionais. Super recomendo.</div>
+        <div class="who"><div class="av">T</div><div>Theo Rita<small>★★★★★</small></div></div>
+      </div>
+      <div class="rv">
+        <div class="q">Os mlks são fera no corte. Barbearia sempre limpa organizada. Música a vontade e fora a resenha</div>
+        <div class="who"><div class="av">L</div><div>Luis Alexandre<small>★★★★★</small></div></div>
+      </div>
+      <div class="rv">
+        <div class="q">Barbearia referência na região, café ar condicionado e tudo de bom!</div>
+        <div class="who"><div class="av">E</div><div>Erick Silva<small>★★★★★</small></div></div>
+      </div>
+    </div>
+    <a class="g-link" href="https://maps.google.com/?cid=11536324486748031017" target="_blank" rel="noopener">Ver todas as avaliações no Google →</a>
+  </div>
+</section>
+
+<section id="visite" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><div><div class="eyebrow">Visite</div><h2 class="display">Cola na Aldeia</h2></div></div>
+    <div class="visit reveal">
+      <div class="card">
+        <h3>Horários</h3>
+        <ul class="hours" id="hours">
+          <li data-d="1"><span>Segunda</span><span>9h às 20h</span></li>
+          <li data-d="2"><span>Terça</span><span>9h às 20h</span></li>
+          <li data-d="3"><span>Quarta</span><span>9h às 20h</span></li>
+          <li data-d="4"><span>Quinta</span><span>9h às 20h</span></li>
+          <li data-d="5"><span>Sexta</span><span>9h às 20h</span></li>
+          <li data-d="6"><span>Sábado</span><span>9h às 20h</span></li>
+          <li data-d="0"><span>Domingo</span><span>9h às 15h</span></li>
+        </ul>
+        <div class="addr"><strong>Av. Luiz José Costa Leandro, 321</strong>Cidade Tiradentes, São Paulo · SP</div>
+        <div class="contacts">
+          <a class="btn btn-fire" href="https://wa.me/5511954774166" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&destination=Barbearia+Aldeia+Av.+Luiz+Jos%C3%A9+Costa+Leandro+321+S%C3%A3o+Paulo" target="_blank" rel="noopener">Como chegar</a>
+          <a class="btn btn-ghost" href="https://www.instagram.com/barbearia_aldeia_/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="map">
+        <iframe loading="lazy" title="Mapa Barbearia Aldeia" src="https://www.google.com/maps?q=Barbearia+Aldeia,+Av.+Luiz+Jos%C3%A9+Costa+Leandro,+321+-+Cidade+Tiradentes,+S%C3%A3o+Paulo&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap reveal">
+    <div class="eyebrow">Sua vez</div>
+    <h2 class="display">Bora dar um<br><span class="grad">trato no visual?</span></h2>
+    <p>Escolha o barbeiro, o serviço e o horário. Leva menos de 1 minuto.</p>
+    <a class="btn btn-fire" href="#agendar" data-book="">Agendar meu horário →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Barbearia Aldeia · Cidade Tiradentes, SP · <button class="foot-admin" onclick="openLogin()">Área do barbeiro</button></span>
+    <span><a href="https://www.instagram.com/barbearia_aldeia_/" target="_blank" rel="noopener">@barbearia_aldeia_</a> · <a href="tel:+5511954774166">(11) 95477-4166</a></span>
+  </div>
+</footer>
+
+<div class="float"><a class="btn btn-fire" href="#agendar" data-book="">Agendar horário →</a></div>
+
+<script>
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40),{passive:true});
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===t));
+  document.querySelectorAll('.menu').forEach(m=>m.classList.toggle('on',m.id===t.dataset.t));
+}));
+const d=new Date().getDay();
+document.querySelector('#hours li[data-d="'+d+'"]')?.classList.add('today');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+<!-- ============ AGENDAMENTO + PAINEL DO BARBEIRO ============ -->
+<style>
+.ov{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.78);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:16px}
+.ov.on{display:flex}
+.box{background:var(--ink2);border:1px solid var(--line);border-radius:24px;width:100%;max-width:520px;max-height:92vh;overflow:auto;padding:26px;position:relative}
+.box h3{font-family:Anton,sans-serif;text-transform:uppercase;font-size:30px;line-height:1;margin-bottom:6px}
+.box .sub{color:var(--muted);font-size:14px;margin-bottom:18px}
+.x{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:none;color:#fff;font-size:18px;cursor:pointer}
+.steps{display:flex;gap:6px;margin-bottom:18px}
+.steps i{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.12)}
+.steps i.on{background:var(--grad)}
+.opt{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;text-align:left;background:rgba(255,255,255,.04);border:1px solid var(--line);color:#fff;border-radius:14px;padding:14px 16px;margin-bottom:8px;font:500 15px Inter,sans-serif;cursor:pointer}
+.opt:hover,.opt.sel{border-color:var(--fire);background:rgba(255,106,19,.08)}
+.opt small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.opt b{font-family:Anton,sans-serif;font-size:20px;font-weight:400;white-space:nowrap}
+.grp{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sun);font-weight:700;margin:16px 0 8px}
+.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+.day{flex:0 0 auto;width:66px;text-align:center;border:1px solid var(--line);border-radius:14px;padding:10px 0;background:rgba(255,255,255,.04);color:#fff;cursor:pointer;font:600 12px Inter,sans-serif}
+.day b{display:block;font-family:Anton,sans-serif;font-size:24px;font-weight:400}
+.day.sel{background:var(--grad);color:#1a0d00;border-color:transparent}
+.times{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+.time{border:1px solid var(--line);border-radius:12px;padding:11px 0;background:rgba(255,255,255,.04);color:#fff;font:600 14px Inter,sans-serif;cursor:pointer}
+.time:hover{border-color:var(--fire)}
+.fld{width:100%;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:#fff;font:500 15px Inter,sans-serif;margin-bottom:10px}
+.fld:focus{outline:none;border-color:var(--fire)}
+select.fld option{background:#181614}
+.err{color:#ff6b6b;font-size:13px;min-height:18px}
+.okm{color:#3ddc84;font-size:13px}
+.full{width:100%;justify-content:center;border:none;cursor:pointer;font-family:Inter,sans-serif}
+.back{background:none;border:none;color:var(--muted);font:500 14px Inter,sans-serif;cursor:pointer;margin-top:14px}
+.lnk{background:none;border:none;color:var(--sun);font:500 13px Inter,sans-serif;text-decoration:underline;cursor:pointer;padding:4px 0}
+.resume{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:16px;padding:16px;font-size:15px;line-height:1.9;margin-bottom:16px}
+.muted{color:var(--muted);font-size:14px}
+.demo{background:rgba(255,178,26,.12);border:1px solid rgba(255,178,26,.4);color:var(--sun);font-size:12px;border-radius:10px;padding:8px 12px;margin-bottom:14px}
+.foot-admin{background:none;border:none;color:var(--muted);font:13px Inter,sans-serif;cursor:pointer}
+.foot-admin:hover{color:#fff}
+
+/* Painel */
+#adm{position:fixed;inset:0;z-index:150;background:var(--ink);overflow:auto;display:none}
+#adm.on{display:block}
+.adm-top{position:sticky;top:0;z-index:2;background:rgba(14,13,12,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.adm-top .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px;height:68px}
+.adm-top h2{white-space:nowrap;font-family:Anton,sans-serif;font-size:22px;text-transform:uppercase;letter-spacing:.03em}
+.adm-acts{display:flex;gap:6px}
+@media(max-width:480px){.adm-acts .sbtn{padding:7px 10px;font-size:12px}}
+.sbtn{border:1px solid var(--line);background:rgba(255,255,255,.04);color:#fff;border-radius:999px;padding:8px 14px;font:600 13px Inter,sans-serif;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.sbtn:hover{border-color:#fff}
+.sbtn.on{background:var(--grad);color:#1a0d00;border-color:transparent}
+.sbtn.wa{border-color:#25d366;color:#3ddc84}
+.sbtn.red{border-color:rgba(255,90,90,.6);color:#ff7b7b}
+.adm-body{padding:24px 0 80px}
+.adm-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;align-items:center}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px}
+.kpi{background:var(--ink2);border:1px solid var(--line);border-radius:18px;padding:16px}
+.kpi small{color:var(--muted);font-size:12px;display:block}
+.kpi b{font-family:Anton,sans-serif;font-size:28px;font-weight:400}
+.kpi.hi{background:var(--grad);color:#1a0d00;border:none}
+.kpi.hi small{color:#3a1d00}
+@media(max-width:760px){.kpis{grid-template-columns:1fr 1fr}}
+.dh{display:flex;align-items:center;gap:10px;margin:22px 0 10px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.dh::after{content:"";flex:1;height:1px;background:var(--line)}
+.dh.today{color:var(--sun)}
+.bk{background:var(--ink2);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:10px;display:grid;grid-template-columns:auto 1fr;gap:4px 16px}
+.bk .hr{font-family:Anton,sans-serif;font-size:28px;line-height:1;color:var(--sun);grid-row:span 2}
+.bk .nm{font-weight:700;font-size:16px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.bk .inf{color:#cfc9c0;font-size:14px}
+.bk .acts{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.bk.blk{border-color:rgba(255,90,90,.4);background:rgba(255,90,90,.05)}
+.bk.blk .hr{color:#ff7b7b}
+.tag{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:6px}
+.tag.pg{background:rgba(61,220,132,.15);color:#3ddc84}
+.tag.pd{background:rgba(255,178,26,.15);color:var(--sun)}
+.tag.br{background:rgba(255,255,255,.08);color:#ddd}
+.panel{background:var(--ink2);border:1px solid var(--line);border-radius:20px;padding:20px;margin-bottom:20px}
+.panel label{font-size:12px;font-weight:600;color:var(--muted);display:block;margin-bottom:6px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.g2{grid-template-columns:1fr}}
+</style>
+
+<!-- Modal de agendamento -->
+<div class="ov" id="book" role="dialog" aria-modal="true" aria-label="Agendar horário">
+  <div class="box"><button class="x" onclick="closeBook()" aria-label="Fechar">✕</button><div id="bk-in"></div></div>
+</div>
+
+<!-- Login do barbeiro -->
+<div class="ov" id="login" role="dialog" aria-modal="true" aria-label="Acesso do barbeiro">
+  <div class="box" style="max-width:380px">
+    <button class="x" onclick="closeLogin()" aria-label="Fechar">✕</button>
+    <h3>Área do barbeiro</h3>
+    <p class="sub">Acesso restrito à equipe da Aldeia.</p>
+    <div id="lg-demo"></div>
+    <input class="fld" type="email" id="lg-email" placeholder="Seu e-mail" autocomplete="username">
+    <input class="fld" type="password" id="lg-pass" placeholder="Sua senha" autocomplete="current-password">
+    <p class="err" id="lg-err"></p><p class="okm" id="lg-ok"></p>
+    <button class="btn btn-fire full" id="lg-btn" onclick="doLogin()">Entrar</button>
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;margin-top:10px">
+      <button class="lnk" onclick="forgotPass()">Esqueci minha senha</button>
+      <button class="lnk" onclick="firstAccess()">Primeiro acesso</button>
+    </div>
+  </div>
+</div>
+
+<!-- Editar agendamento -->
+<div class="ov" id="edit" role="dialog" aria-modal="true" aria-label="Editar agendamento">
+  <div class="box" style="max-width:400px">
+    <button class="x" onclick="closeEdit()" aria-label="Fechar">✕</button>
+    <h3>Editar horário</h3>
+    <p class="sub" id="ed-info"></p>
+    <div class="panel" style="padding:0;border:none;background:none">
+      <label>Data</label><input class="fld" type="date" id="ed-date">
+      <div class="g2">
+        <div><label>Horário</label><select class="fld" id="ed-time"></select></div>
+        <div><label>Duração</label><select class="fld" id="ed-dur"></select></div>
+      </div>
+      <label>Barbeiro</label><select class="fld" id="ed-barber"></select>
+    </div>
+    <p class="err" id="ed-err"></p>
+    <button class="btn btn-fire full" onclick="saveEdit()">Salvar alterações</button>
+  </div>
+</div>
+
+<!-- Painel -->
+<div id="adm">
+  <div class="adm-top"><div class="wrap">
+    <h2>Painel <span class="grad">Aldeia</span></h2>
+    <div class="adm-acts">
+      <button class="sbtn" onclick="changePass()">🔑 Trocar senha</button>
+      <button class="sbtn" onclick="logout()">Sair</button>
+    </div>
+  </div></div>
+  <div class="wrap adm-body" id="adm-body"></div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script>
+/* ================= CONFIGURAÇÃO =================
+   1) Crie um projeto NOVO no Firebase só para a Aldeia (não use o do Wilkei).
+   2) Cole aqui os dados do App da Web.
+   3) Em ADMIN_EMAILS, coloque o e-mail de quem pode entrar no painel.
+   Enquanto não configurar, o site roda em MODO DEMONSTRAÇÃO (salva só neste navegador). */
+var firebaseConfig = {
+  apiKey: "COLE_AQUI_A_API_KEY",
+  authDomain: "COLE_AQUI.firebaseapp.com",
+  databaseURL: "https://COLE_AQUI-default-rtdb.firebaseio.com/",
+  projectId: "COLE_AQUI",
+  appId: "COLE_AQUI"
+};
+var ADMIN_EMAILS = ["coloque_o_email_do_barbeiro@gmail.com"];
+var SALON_WA = "5511954774166";
+var DB_PATH = "agendamentos";
+var IDLE_MIN = 15;
+var DEMO_EMAIL = "demo@aldeia.com", DEMO_PASS = "aldeia123";
+
+var BARBERS = [{id:"carlos",n:"Carlos"},{id:"roger",n:"Roger"}];
+// [nome, preço, duração em minutos, grupo, "a partir de"]
+var SV = [
+  ["Corte",35,40,"Corte e barba"],["Barba",30,30,"Corte e barba"],["Sobrancelha",10,15,"Corte e barba"],["Limpeza de pele",35,30,"Corte e barba"],
+  ["Platinado",110,120,"Químicas",1],["Luzes",100,120,"Químicas",1],["Alisante",35,40,"Químicas"],["Tintura",25,30,"Químicas"],["Hidratação",10,20,"Químicas"],
+  ["Alisante + Hidratação",45,60,"Combos"],["Luzes + Hidratação",100,120,"Combos"]
+];
+// Horário de funcionamento (minutos do dia). 0 = domingo
+function hoursOf(dow){ return dow===0 ? [9*60,15*60] : [9*60,20*60]; }
+
+/* ================= BANCO (Firebase ou demonstração) ================= */
+var DEMO = firebaseConfig.apiKey.indexOf("COLE_AQUI")>-1;
+var fdb=null, auth=null, demoLogged=false;
+if(!DEMO){
+  try{
+    firebase.initializeApp(firebaseConfig);
+    fdb=firebase.database(); auth=firebase.auth(); auth.languageCode="pt";
+    auth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
+  }catch(e){ console.log("Firebase indisponível", e); }
+}
+function demoTree(){ try{return JSON.parse(localStorage.getItem("aldeia_demo")||"{}")}catch(e){return {}} }
+function demoSave(t){ try{localStorage.setItem("aldeia_demo",JSON.stringify(t))}catch(e){} }
+function dbGet(path){
+  if(fdb) return fdb.ref(path).once("value").then(function(s){return s.val()});
+  var t=demoTree(); path.split("/").forEach(function(p){ t = t ? t[p] : null; });
+  return Promise.resolve(t||null);
+}
+function dbUpdate(path, obj){
+  if(fdb) return fdb.ref(path).update(obj);
+  var root=demoTree();
+  Object.keys(obj).forEach(function(k){
+    var parts=(path+"/"+k).split("/"), node=root;
+    for(var i=0;i<parts.length-1;i++){ if(typeof node[parts[i]]!=="object"||!node[parts[i]]) node[parts[i]]={}; node=node[parts[i]]; }
+    var last=parts[parts.length-1];
+    if(obj[k]===null) delete node[last]; else node[last]=obj[k];
+  });
+  // limpa dias vazios
+  var ag=root[DB_PATH]||{}; Object.keys(ag).forEach(function(d){ if(!Object.keys(ag[d]||{}).length) delete ag[d]; });
+  demoSave(root); return Promise.resolve();
+}
+
+/* ================= UTILITÁRIOS ================= */
+var DOW=["dom","seg","ter","qua","qui","sex","sáb"], MES=["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]}); }
+function iso(d){ return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+function fromIso(s){ var p=s.split("-"); return new Date(+p[0],+p[1]-1,+p[2]); }
+function lbl(d){ return DOW[d.getDay()]+", "+d.getDate()+" "+MES[d.getMonth()]; }
+function hm(m){ return String(Math.floor(m/60)).padStart(2,"0")+":"+String(m%60).padStart(2,"0"); }
+function mins(t){ var p=String(t).split(":"); return (+p[0]||0)*60+(+p[1]||0); }
+function money(v){ return "R$ "+(+v||0).toLocaleString("pt-BR",{minimumFractionDigits:2}); }
+function bName(id){ if(id==="todos") return "Todos"; var b=BARBERS.filter(function(x){return x.id===id})[0]; return b?b.n:id; }
+function isPaid(i){ return i.pago===true||i.pago==="true"; }
+
+// Um barbeiro está livre em [start, start+dur) nesse dia?
+function isFree(dayData, barber, start, dur, ignoreKey){
+  for(var k in (dayData||{})){
+    if(k===ignoreKey) continue;
+    var it=dayData[k]; if(!it) continue;
+    if(it.barbeiro!==barber && it.barbeiro!=="todos") continue;
+    if(it.dia) return false;
+    var s=mins(it.hora), e=s+(+it.duracao||30);
+    if(Math.max(start,s) < Math.min(start+dur,e)) return false;
+  }
+  return true;
+}
+
+/* ================= AGENDAMENTO DO CLIENTE ================= */
+var B={}, bkIn=document.getElementById("bk-in");
+function openBook(barber){
+  B={barber:barber||null,fixedBarber:!!barber};
+  document.getElementById("book").classList.add("on");
+  document.body.style.overflow="hidden";
+  stepService();
+}
+function closeBook(){ document.getElementById("book").classList.remove("on"); document.body.style.overflow=""; }
+function bar(n){ var h="<div class='steps'>"; for(var i=1;i<=5;i++) h+="<i class='"+(i<=n?"on":"")+"'></i>"; return h+"</div>"; }
+function demoNote(){ return DEMO ? "<div class='demo'>Modo demonstração: os agendamentos ficam salvos só neste aparelho.</div>" : ""; }
+
+function stepService(){
+  var h=demoNote()+bar(1)+"<h3>Qual serviço?</h3><p class='sub'>Escolha o que vai fazer hoje.</p>", g="";
+  SV.forEach(function(s,i){
+    if(s[3]!==g){ g=s[3]; h+="<div class='grp'>"+g+"</div>"; }
+    h+="<button class='opt' onclick='pickService("+i+")'><span>"+esc(s[0])+"<small>cerca de "+s[2]+" min</small></span><b>"+(s[4]?"<small style='display:inline;font:600 10px Inter'>A PARTIR DE </small>":"")+"R$ "+s[1]+"</b></button>";
+  });
+  h+="<div style='text-align:center;margin-top:10px'><button class='lnk' onclick='stepCancel()'>Já agendei e quero cancelar</button></div>";
+  bkIn.innerHTML=h;
+}
+function pickService(i){ B.svc=SV[i]; if(B.barber) stepDay(); else stepBarber(); }
+
+function stepBarber(){
+  var h=bar(2)+"<h3>Com quem?</h3><p class='sub'>"+esc(B.svc[0])+"</p>";
+  BARBERS.forEach(function(b){ h+="<button class='opt' onclick=\"B.barber='"+b.id+"';stepDay()\"><span>"+b.n+"<small>Barbeiro</small></span><b>→</b></button>"; });
+  h+="<button class='opt' onclick=\"B.barber='any';stepDay()\"><span>Tanto faz<small>O primeiro livre no horário escolhido</small></span><b>→</b></button>";
+  h+="<button class='back' onclick='stepService()'>← Voltar</button>";
+  bkIn.innerHTML=h;
+}
+
+function stepDay(){
+  var base=new Date(); base.setHours(0,0,0,0);
+  var h=bar(3)+"<h3>Que dia?</h3><p class='sub'>"+esc(B.svc[0])+" · "+(B.barber==="any"?"Tanto faz":bName(B.barber))+"</p><div class='days'>";
+  for(var k=0;k<21;k++){
+    var d=new Date(base.getTime()+k*86400000);
+    h+="<button class='day' data-d='"+iso(d)+"' onclick='pickDay(this)'>"+(k===0?"Hoje":DOW[d.getDay()])+"<b>"+d.getDate()+"</b>"+MES[d.getMonth()]+"</button>";
+  }
+  h+="</div><div id='tm'></div><button class='back' onclick='"+(B.fixedBarber?"stepService()":"stepBarber()")+"'>← Voltar</button>";
+  bkIn.innerHTML=h;
+  var first=bkIn.querySelector(".day"); if(first) pickDay(first);
+}
+function pickDay(el){
+  bkIn.querySelectorAll(".day").forEach(function(x){x.classList.toggle("sel",x===el)});
+  B.dateKey=el.dataset.d; B.date=fromIso(B.dateKey);
+  var tm=document.getElementById("tm"); tm.innerHTML="<p class='muted' style='margin-top:14px'>Buscando horários livres...</p>";
+  dbGet(DB_PATH+"/"+B.dateKey).then(function(day){
+    if(B.dateKey!==el.dataset.d) return;
+    var hr=hoursOf(B.date.getDay()), dur=B.svc[2], now=new Date(), nowM=now.getHours()*60+now.getMinutes();
+    var isToday=iso(now)===B.dateKey, list=B.barber==="any"?BARBERS.map(function(b){return b.id}):[B.barber], out="";
+    for(var m=hr[0]; m+dur<=hr[1]; m+=15){
+      if(isToday && m<=nowM+15) continue;
+      var who=list.filter(function(b){return isFree(day,b,m,dur)})[0];
+      if(who) out+="<button class='time' onclick=\"pickTime('"+hm(m)+"','"+who+"')\">"+hm(m)+"</button>";
+    }
+    tm.innerHTML = out ? "<div class='times'>"+out+"</div>" : "<p class='muted' style='margin-top:14px'>Sem horários livres nesse dia. Tente outro.</p>";
+  }).catch(function(){ tm.innerHTML="<p class='err' style='margin-top:14px'>Não consegui buscar os horários. Recarregue a página.</p>"; });
+}
+function pickTime(t,who){ B.time=t; B.assigned=who; stepData(); }
+
+function stepData(){
+  bkIn.innerHTML=bar(4)+"<h3>Seus dados</h3><p class='sub'>"+esc(lbl(B.date))+" às "+B.time+" com "+bName(B.assigned)+"</p>"+
+    "<input class='fld' id='cl-nome' placeholder='Seu nome' autocomplete='name' value='"+esc(B.nome||"")+"'>"+
+    "<input class='fld' id='cl-tel' type='tel' placeholder='WhatsApp com DDD (ex: 11999999999)' autocomplete='tel' value='"+esc(B.tel||"")+"'>"+
+    "<p class='err' id='cl-err'></p><button class='btn btn-fire full' onclick='stepConfirm()'>Continuar</button>"+
+    "<button class='back' onclick='stepDay()'>← Voltar</button>";
+  document.getElementById("cl-nome").focus();
+}
+function stepConfirm(){
+  var n=document.getElementById("cl-nome").value.trim(), t=document.getElementById("cl-tel").value.replace(/\D/g,"");
+  if(n.length<2){ document.getElementById("cl-err").textContent="Digite seu nome."; return; }
+  if(t.length<10||t.length>11){ document.getElementById("cl-err").textContent="Digite o WhatsApp com DDD (10 ou 11 números)."; return; }
+  B.nome=n; B.tel=t;
+  bkIn.innerHTML=bar(5)+"<h3>Confere aí</h3><p class='sub'>Se estiver tudo certo, é só confirmar.</p><div class='resume'>"+
+    "<b>Serviço:</b> "+esc(B.svc[0])+" · "+(B.svc[4]?"a partir de ":"")+"R$ "+B.svc[1]+"<br><b>Barbeiro:</b> "+bName(B.assigned)+
+    "<br><b>Quando:</b> "+esc(lbl(B.date))+" às "+B.time+"<br><b>Nome:</b> "+esc(B.nome)+"<br><b>WhatsApp:</b> "+esc(B.tel)+
+    "</div><p class='err' id='cf-err'></p><button class='btn btn-fire full' id='cf-btn' onclick='saveBooking()'>Confirmar agendamento</button>"+
+    "<button class='back' onclick='stepData()'>← Voltar</button>";
+}
+function saveBooking(){
+  var btn=document.getElementById("cf-btn"); btn.disabled=true; btn.textContent="Salvando...";
+  var dur=B.svc[2], start=mins(B.time);
+  dbGet(DB_PATH+"/"+B.dateKey).then(function(day){
+    if(!isFree(day,B.assigned,start,dur)){
+      document.getElementById("cf-err").textContent="Esse horário acabou de ser ocupado. Escolha outro.";
+      btn.disabled=false; btn.textContent="Confirmar agendamento"; setTimeout(stepDay,1400); return;
+    }
+    var key=B.assigned+"_"+B.time.replace(":","")+"_"+Date.now().toString(36), o={};
+    o[key]={nome:B.nome,tel:B.tel,servico:B.svc[0],preco:B.svc[1],duracao:dur,hora:B.time,barbeiro:B.assigned,pago:false,criado:Date.now()};
+    return dbUpdate(DB_PATH+"/"+B.dateKey,o).then(stepDone);
+  }).catch(function(){ document.getElementById("cf-err").textContent="Não foi possível salvar. Tente de novo."; btn.disabled=false; btn.textContent="Confirmar agendamento"; });
+}
+function stepDone(){
+  var msg="Olá! Agendei pelo site:\n\n• Nome: "+B.nome+"\n• Serviço: "+B.svc[0]+"\n• Barbeiro: "+bName(B.assigned)+"\n• Data: "+lbl(B.date)+" às "+B.time;
+  bkIn.innerHTML="<div style='text-align:center;padding:10px 0'><div style='font-size:54px'>✂️</div><h3>Horário garantido!</h3>"+
+    "<p class='sub'>"+esc(lbl(B.date))+" às "+B.time+" com "+bName(B.assigned)+".<br>Se não puder vir, cancele por aqui para liberar a vaga.</p>"+
+    "<a class='btn btn-fire full' target='_blank' rel='noopener' href='https://wa.me/"+SALON_WA+"?text="+encodeURIComponent(msg)+"'>Avisar no WhatsApp</a>"+
+    "<button class='back' onclick='closeBook()'>Fechar</button></div>";
+}
+
+function stepCancel(){
+  bkIn.innerHTML="<h3>Cancelar horário</h3><p class='sub'>Digite o WhatsApp que você usou no agendamento.</p>"+
+    "<input class='fld' id='cc-tel' type='tel' placeholder='Ex: 11999999999'><p class='err' id='cc-err'></p>"+
+    "<button class='btn btn-fire full' onclick='findMine()'>Buscar meus horários</button><div id='cc-list' style='margin-top:14px'></div>"+
+    "<button class='back' onclick='stepService()'>← Voltar</button>";
+}
+function findMine(){
+  var t=document.getElementById("cc-tel").value.replace(/\D/g,""), box=document.getElementById("cc-list");
+  if(t.length<10){ document.getElementById("cc-err").textContent="Digite o número com DDD."; return; }
+  document.getElementById("cc-err").textContent=""; box.innerHTML="<p class='muted'>Buscando...</p>";
+  var today=iso(new Date());
+  dbGet(DB_PATH).then(function(all){
+    var h="";
+    Object.keys(all||{}).sort().forEach(function(d){
+      if(d<today) return;
+      Object.keys(all[d]).forEach(function(k){
+        var it=all[d][k];
+        if(it && !it.bloqueado && String(it.tel)===t)
+          h+="<button class='opt' onclick=\"clientCancel('"+d+"','"+k+"')\"><span>"+esc(lbl(fromIso(d)))+" às "+esc(it.hora)+"<small>"+esc(it.servico)+" com "+bName(it.barbeiro)+"</small></span><b style='color:#ff7b7b;font:700 13px Inter'>Cancelar</b></button>";
+      });
+    });
+    box.innerHTML=h||"<p class='muted'>Nenhum horário futuro encontrado nesse número.</p>";
+  });
+}
+function clientCancel(d,k){
+  if(!confirm("Cancelar esse horário?")) return;
+  var o={}; o[k]=null;
+  dbUpdate(DB_PATH+"/"+d,o).then(function(){ alert("Horário cancelado. Obrigado por avisar!"); findMine(); });
+}
+
+/* ================= LOGIN DO BARBEIRO ================= */
+function isAdmin(){
+  if(DEMO) return demoLogged;
+  var u=auth&&auth.currentUser; return !!(u && ADMIN_EMAILS.map(function(e){return e.toLowerCase()}).indexOf((u.email||"").toLowerCase())>-1);
+}
+function lgMsg(err,ok){ document.getElementById("lg-err").textContent=err||""; document.getElementById("lg-ok").textContent=ok||""; }
+function openLogin(){
+  if(isAdmin()){ openPanel(); return; }
+  lgMsg(); document.getElementById("lg-pass").value="";
+  document.getElementById("lg-demo").innerHTML = DEMO ? "<div class='demo'>Modo demonstração. Entre com <b>"+DEMO_EMAIL+"</b> e a senha <b>"+DEMO_PASS+"</b>.</div>" : "";
+  document.getElementById("login").classList.add("on");
+  setTimeout(function(){document.getElementById("lg-email").focus()},50);
+}
+function closeLogin(){ document.getElementById("login").classList.remove("on"); }
+function authMsg(e){
+  var c=(e&&e.code)||"";
+  if(/wrong-password|user-not-found|invalid-credential|invalid-login/.test(c)) return "E-mail ou senha incorretos.";
+  if(c==="auth/invalid-email") return "E-mail inválido.";
+  if(c==="auth/too-many-requests") return "Muitas tentativas. Espere alguns minutos.";
+  if(c==="auth/network-request-failed") return "Sem internet. Verifique a conexão.";
+  return "Não foi possível entrar. Tente novamente.";
+}
+function doLogin(){
+  var em=document.getElementById("lg-email").value.trim(), pw=document.getElementById("lg-pass").value;
+  lgMsg(); if(!em||!pw){ lgMsg("Preencha e-mail e senha."); return; }
+  if(DEMO){
+    if(em.toLowerCase()===DEMO_EMAIL && pw===DEMO_PASS){ demoLogged=true; closeLogin(); openPanel(); }
+    else lgMsg("E-mail ou senha incorretos.");
+    return;
+  }
+  if(!auth){ lgMsg("Login ainda não configurado."); return; }
+  var b=document.getElementById("lg-btn"); b.disabled=true; b.textContent="Entrando...";
+  auth.signInWithEmailAndPassword(em,pw).then(function(){
+    if(!isAdmin()){ auth.signOut(); lgMsg("Essa conta não tem acesso ao painel."); return; }
+    closeLogin(); openPanel();
+  }).catch(function(e){ lgMsg(authMsg(e)); }).finally(function(){ b.disabled=false; b.textContent="Entrar"; });
+}
+function forgotPass(){
+  if(DEMO){ lgMsg("","No modo demonstração a senha é "+DEMO_PASS+"."); return; }
+  var em=document.getElementById("lg-email").value.trim();
+  if(!em){ lgMsg("Digite seu e-mail acima e clique de novo."); return; }
+  auth.sendPasswordResetEmail(em).then(function(){ lgMsg("","Se esse e-mail for da equipe, chegou um link para criar nova senha. Veja também o spam."); })
+    .catch(function(e){ if(e&&e.code==="auth/user-not-found") lgMsg("","Se esse e-mail for da equipe, chegou um link para criar nova senha. Veja também o spam."); else lgMsg(authMsg(e)); });
+}
+function firstAccess(){
+  if(DEMO){ lgMsg("","No modo demonstração não precisa criar conta."); return; }
+  var em=document.getElementById("lg-email").value.trim().toLowerCase(), pw=document.getElementById("lg-pass").value;
+  if(ADMIN_EMAILS.map(function(e){return e.toLowerCase()}).indexOf(em)<0){ lgMsg("Só o e-mail cadastrado da barbearia pode criar a conta."); return; }
+  if(pw.length<6){ lgMsg("Escolha uma senha com pelo menos 6 caracteres e clique de novo."); return; }
+  auth.createUserWithEmailAndPassword(em,pw).then(function(){ closeLogin(); alert("Conta criada! Guarde sua senha."); openPanel(); })
+    .catch(function(e){ lgMsg(e&&e.code==="auth/email-already-in-use"?"Essa conta já existe. Use Entrar ou Esqueci minha senha.":authMsg(e)); });
+}
+function changePass(){
+  if(DEMO){ alert("No modo demonstração não dá para trocar a senha."); return; }
+  var em=auth.currentUser.email;
+  auth.sendPasswordResetEmail(em).then(function(){ alert("Enviamos um link para "+em+" para criar a nova senha."); });
+}
+function logout(silent){
+  clearTimeout(idleT); demoLogged=false; if(auth) auth.signOut();
+  document.getElementById("adm").classList.remove("on"); document.body.style.overflow="";
+  if(!silent) alert("Você saiu do painel.");
+}
+var idleT=null;
+function resetIdle(){
+  if(!document.getElementById("adm").classList.contains("on")) return;
+  clearTimeout(idleT);
+  idleT=setTimeout(function(){ if(isAdmin()){ logout(true); alert("Você ficou "+IDLE_MIN+" min parado e saiu do painel por segurança."); } }, IDLE_MIN*60000);
+}
+["click","keydown","touchstart","scroll"].forEach(function(ev){ document.addEventListener(ev,resetIdle,{passive:true}); });
+document.getElementById("lg-pass").addEventListener("keydown",function(e){ if(e.key==="Enter"){e.preventDefault();doLogin();} });
+
+/* ================= PAINEL ================= */
+var P={tab:"agenda",barber:"todos",range:"prox"}, CACHE={};
+var admBody=document.getElementById("adm-body");
+function openPanel(){
+  if(!isAdmin()){ openLogin(); return; }
+  document.getElementById("adm").classList.add("on"); document.body.style.overflow="hidden";
+  resetIdle(); renderPanel();
+}
+function setP(k,v){ P[k]=v; renderPanel(); }
+function chip(k,v,txt){ return "<button class='sbtn "+(P[k]===v?"on":"")+"' onclick=\"setP('"+k+"','"+v+"')\">"+txt+"</button>"; }
+
+function renderPanel(){
+  if(!isAdmin()){ logout(true); openLogin(); return; }
+  var h=(DEMO?"<div class='demo'>Modo demonstração: dados salvos só neste navegador. Agende pelo site para ver aparecer aqui.</div>":"")+
+    "<div class='adm-row'>"+chip("tab","agenda","📅 Agenda")+chip("tab","bloq","🚫 Folgas e bloqueios")+"</div>"+
+    "<div id='pbody'><p class='muted'>Carregando...</p></div>";
+  admBody.innerHTML=h;
+  dbGet(DB_PATH).then(function(all){ CACHE=all||{}; P.tab==="agenda"?renderAgenda():renderBlocks(); })
+    .catch(function(){ document.getElementById("pbody").innerHTML="<p class='err'>Não consegui carregar a agenda. Verifique a internet.</p>"; });
+}
+
+function renderAgenda(){
+  var today=iso(new Date()), ym=today.slice(0,7);
+  var tot=0, rec=0, qtd=0, hoje=0, byB={};
+  BARBERS.forEach(function(b){byB[b.id]=0});
+  var days={};
+  Object.keys(CACHE).forEach(function(d){
+    Object.keys(CACHE[d]||{}).forEach(function(k){
+      var it=CACHE[d][k]; if(!it||it.bloqueado) return;
+      if(d.slice(0,7)===ym){ tot+=+it.preco||0; if(isPaid(it)) rec+=+it.preco||0; qtd++; if(byB[it.barbeiro]!=null) byB[it.barbeiro]++; }
+      if(d===today) hoje++;
+      if(P.barber!=="todos" && it.barbeiro!==P.barber) return;
+      if(P.range==="prox" && d<today) return;
+      if(P.range==="hoje" && d!==today) return;
+      if(P.range==="ant" && d>=today) return;
+      (days[d]=days[d]||[]).push({k:k,it:it});
+    });
+  });
+  var h="<div class='kpis'>"+
+    "<div class='kpi hi'><small>Hoje</small><b>"+hoje+"</b><small>atendimento"+(hoje===1?"":"s")+"</small></div>"+
+    "<div class='kpi'><small>Faturamento do mês</small><b>"+money(tot)+"</b></div>"+
+    "<div class='kpi'><small>Recebido</small><b style='color:#3ddc84'>"+money(rec)+"</b></div>"+
+    "<div class='kpi'><small>A receber</small><b style='color:var(--sun)'>"+money(tot-rec)+"</b></div></div>"+
+    "<p class='muted' style='margin:-10px 0 18px'>No mês: "+qtd+" atendimentos · "+BARBERS.map(function(b){return b.n+" "+byB[b.id]}).join(" · ")+"</p>"+
+    "<div class='adm-row'>"+chip("range","hoje","Hoje")+chip("range","prox","Próximos")+chip("range","ant","Anteriores")+
+    "<span style='width:12px'></span>"+chip("barber","todos","Todos")+BARBERS.map(function(b){return chip("barber",b.id,b.n)}).join("")+"</div>";
+  var keys=Object.keys(days).sort(); if(P.range==="ant") keys.reverse();
+  if(!keys.length) h+="<p class='muted' style='text-align:center;margin-top:30px'>Nenhum agendamento aqui.</p>";
+  keys.forEach(function(d){
+    h+="<div class='dh "+(d===today?"today":"")+"'>"+(d===today?"Hoje · ":"")+esc(lbl(fromIso(d)))+" · "+days[d].length+"</div>";
+    days[d].sort(function(a,b){return mins(a.it.hora)-mins(b.it.hora)}).forEach(function(o){
+      var it=o.it, pd=isPaid(it), tel=String(it.tel||"").replace(/\D/g,"");
+      h+="<div class='bk'><div class='hr'>"+esc(it.hora)+"</div>"+
+        "<div class='nm'>"+esc(it.nome)+" <span class='tag br'>"+bName(it.barbeiro)+"</span><span class='tag "+(pd?"pg":"pd")+"'>"+(pd?"Pago":"A receber")+"</span></div>"+
+        "<div class='inf'>"+esc(it.servico)+" · "+(+it.duracao||30)+" min · "+money(it.preco)+" · "+esc(it.tel)+"</div>"+
+        "<div class='acts'>"+
+          "<button class='sbtn' onclick=\"togglePaid('"+d+"','"+o.k+"')\">"+(pd?"Desmarcar pago":"✓ Marcar pago")+"</button>"+
+          (tel?"<a class='sbtn wa' target='_blank' rel='noopener' href='https://wa.me/55"+tel+"'>WhatsApp</a>":"")+
+          "<button class='sbtn' onclick=\"openEdit('"+d+"','"+o.k+"')\">Editar</button>"+
+          "<button class='sbtn red' onclick=\"adminDel('"+d+"','"+o.k+"')\">Cancelar</button>"+
+        "</div></div>";
+    });
+  });
+  document.getElementById("pbody").innerHTML=h;
+}
+
+function togglePaid(d,k){
+  var it=CACHE[d]&&CACHE[d][k]; if(!it) return;
+  var o={}; o[k+"/pago"]=!isPaid(it);
+  dbUpdate(DB_PATH+"/"+d,o).then(renderPanel);
+}
+function adminDel(d,k){
+  if(!confirm("Remover e liberar esse horário?")) return;
+  var o={}; o[k]=null; dbUpdate(DB_PATH+"/"+d,o).then(renderPanel);
+}
+
+var ED=null;
+function timeOpts(){ var s=""; for(var m=8*60;m<=21*60;m+=15) s+="<option>"+hm(m)+"</option>"; return s; }
+function openEdit(d,k){
+  var it=CACHE[d][k]; ED={d:d,k:k,it:it};
+  document.getElementById("ed-info").textContent=it.nome+" · "+it.servico;
+  document.getElementById("ed-date").value=d;
+  var t=document.getElementById("ed-time"); t.innerHTML=timeOpts(); t.value=it.hora;
+  var du=document.getElementById("ed-dur"), ds=[15,20,30,40,45,60,75,90,120,150,180];
+  if(ds.indexOf(+it.duracao)<0) ds.push(+it.duracao);
+  du.innerHTML=ds.sort(function(a,b){return a-b}).map(function(m){return "<option value='"+m+"'>"+m+" min</option>"}).join(""); du.value=String(it.duracao);
+  var bb=document.getElementById("ed-barber"); bb.innerHTML=BARBERS.map(function(b){return "<option value='"+b.id+"'>"+b.n+"</option>"}).join(""); bb.value=it.barbeiro;
+  document.getElementById("ed-err").textContent="";
+  document.getElementById("edit").classList.add("on");
+}
+function closeEdit(){ document.getElementById("edit").classList.remove("on"); ED=null; }
+function saveEdit(){
+  if(!ED||!isAdmin()) return;
+  var nd=document.getElementById("ed-date").value, nt=document.getElementById("ed-time").value,
+      du=+document.getElementById("ed-dur").value, nb=document.getElementById("ed-barber").value;
+  if(!nd){ document.getElementById("ed-err").textContent="Escolha a data."; return; }
+  dbGet(DB_PATH+"/"+nd).then(function(day){
+    var ignore = nd===ED.d ? ED.k : null;
+    if(!isFree(day,nb,mins(nt),du,ignore) && !confirm(bName(nb)+" já tem algo nesse horário. Salvar mesmo assim?")) return;
+    var item=Object.assign({},ED.it,{hora:nt,duracao:du,barbeiro:nb});
+    var newKey=nb+"_"+nt.replace(":","")+"_"+Date.now().toString(36);
+    var rm={}; rm[ED.k]=null;
+    return dbUpdate(DB_PATH+"/"+ED.d,rm).then(function(){ var o={}; o[newKey]=item; return dbUpdate(DB_PATH+"/"+nd,o); })
+      .then(function(){ closeEdit(); renderPanel(); });
+  });
+}
+
+function renderBlocks(){
+  var today=iso(new Date());
+  var h="<div class='panel'><div class='g2'>"+
+    "<div><label>Data</label><input class='fld' type='date' id='bl-date' value='"+today+"' min='"+today+"'></div>"+
+    "<div><label>Barbeiro</label><select class='fld' id='bl-b'><option value='todos'>Barbearia toda</option>"+BARBERS.map(function(b){return "<option value='"+b.id+"'>"+b.n+"</option>"}).join("")+"</select></div>"+
+    "<div><label>Bloquear</label><select class='fld' id='bl-t'><option value='DIA'>Dia inteiro (folga)</option>"+timeOpts()+"</select></div>"+
+    "<div><label>Por quanto tempo</label><select class='fld' id='bl-dur'><option value='30'>30 min</option><option value='60'>1 hora</option><option value='120'>2 horas</option><option value='240'>4 horas</option></select></div>"+
+    "</div><button class='btn btn-fire full' onclick='addBlock()'>Bloquear</button></div><div class='dh'>Bloqueios ativos</div>";
+  var any=false;
+  Object.keys(CACHE).sort().forEach(function(d){
+    if(d<today) return;
+    Object.keys(CACHE[d]||{}).forEach(function(k){
+      var it=CACHE[d][k]; if(!it||!it.bloqueado) return; any=true;
+      h+="<div class='bk blk'><div class='hr'>"+(it.dia?"Dia":esc(it.hora))+"</div><div class='nm'>"+esc(lbl(fromIso(d)))+" <span class='tag br'>"+bName(it.barbeiro)+"</span></div>"+
+        "<div class='inf'>"+(it.dia?"Folga · dia inteiro fechado":"Fechado por "+it.duracao+" min")+"</div>"+
+        "<div class='acts'><button class='sbtn' onclick=\"adminDel('"+d+"','"+k+"')\">🔓 Desbloquear</button></div></div>";
+    });
+  });
+  if(!any) h+="<p class='muted' style='text-align:center;margin-top:20px'>Nenhum bloqueio ativo.</p>";
+  document.getElementById("pbody").innerHTML=h;
+}
+function addBlock(){
+  var d=document.getElementById("bl-date").value, b=document.getElementById("bl-b").value,
+      t=document.getElementById("bl-t").value, du=+document.getElementById("bl-dur").value;
+  if(!d){ alert("Escolha a data."); return; }
+  var o={}, dia=(t==="DIA");
+  o[b+"_BLOQ_"+(dia?"DIA":t.replace(":",""))]={bloqueado:true,dia:dia,hora:dia?"00:00":t,duracao:dia?1440:du,barbeiro:b,nome:"Bloqueio",servico:"-",preco:0};
+  var msg=(dia?"Fechar o dia inteiro ":"Bloquear "+t+" ")+"de "+lbl(fromIso(d))+" ("+bName(b)+")?";
+  if(!confirm(msg)) return;
+  dbUpdate(DB_PATH+"/"+d,o).then(renderPanel);
+}
+
+/* Liga os botões "Agendar" do site ao agendamento próprio */
+document.querySelectorAll("[data-book]").forEach(function(a){
+  a.addEventListener("click",function(e){ e.preventDefault(); openBook(a.dataset.book||null); });
+});
+document.addEventListener("keydown",function(e){
+  if(e.key!=="Escape") return;
+  ["edit","login","book"].some(function(id){ var el=document.getElementById(id); if(el.classList.contains("on")){ id==="book"?closeBook():el.classList.remove("on"); return true; } });
+});
+if(location.hash==="#painel") openLogin();
+</script>
+
+</body>
+</html>
